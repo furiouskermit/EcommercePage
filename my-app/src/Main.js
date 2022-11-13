@@ -58,7 +58,7 @@ function Main() {
             alt={imgAlt(4)} />
           </div>
           <div className="thumb-small">
-            <button onClick={onclick}><img src={thumb1} alt={imgAlt(1)} /></button>
+            <button className="active" onClick={onclick}><img src={thumb1} alt={imgAlt(1)} /></button>
             <button onClick={onclick}><img src={thumb2} alt={imgAlt(2)} /></button>
             <button onClick={onclick}><img src={thumb3} alt={imgAlt(3)} /></button>
             <button onClick={onclick}><img src={thumb4} alt={imgAlt(4)} /></button>

@@ -1,0 +1,122 @@
+/* ### Default CSS ### */
+* {
+  box-sizing: border-box;
+}
+body {
+  color: #121212;
+}
+a {
+  text-decoration: none;
+  color: #121212;
+}
+
+/* ### Reset CSS ### */
+button {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* ### Common CSS ### */
+.d-none {
+  display: none !important;
+}
+.inner {
+  max-width: 1350px;
+  margin: 0 auto;
+}
+
+/* ### header ### */
+.header {}
+.header .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-left > [class *= "header"] {
+  display: inline-block;
+  vertical-align: middle;
+}
+.headerGnb {
+  margin-left: 30px;
+}
+.headerGnb a {
+  display: inline-block;
+  padding: 30px 0;
+  position: relative;
+}
+.headerGnb a:not(:last-child) {
+  margin-right: 15px;
+}
+.headerGnb a:hover:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  left: 0;  
+  background-color: orange;
+}
+:is(.cart, .profile) {
+  width: 70px;
+  height: 70px;
+  vertical-align: top;
+  border-radius: 100%;
+  border: 2px solid transparent;
+}
+:is(.cart, .profile):hover {
+  border: 2px dotted #000;
+}
+.cart {
+  position: relative;
+}
+.cartModal {
+  position: absolute;
+  background: #fff;
+  min-width: 200px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.profile {}
+.profile img {
+  width: 100%;
+}
+
+/* ### Main ### */
+.main {}
+.main .inner {
+  overflow: hidden;
+}
+[class *= "main-"] {
+  padding: 50px;
+}
+.main-left {
+  float: left;
+  width: 600px;
+}
+.main-right {
+  float: right;
+  width: calc(100% - 600px);
+}
+
+/* left */
+.main-left img {
+  width: 100%;
+}
+.thumb-big img {
+  border-radius: 30px;
+}
+.thumb-small {
+  margin: 18px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+.thumb-small img {
+  border-radius: 10px;
+  opacity: 0.4;
+}
+.thumb-small button.active img {
+  opacity: 1;
+}

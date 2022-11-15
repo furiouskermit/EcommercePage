@@ -1,4 +1,8 @@
-import {useState} from 'react';
-
-function Count() {}
+function Count() {
+  return (
+    <div>
+      sadadsadas
+    </div>
+  )
+}
 export default Count;

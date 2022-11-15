@@ -72,7 +72,8 @@ button {
 :is(.cart, .profile):hover {
   border: 2px dotted #000;
 }
-.cart {
+.cartWrap {
+  display: inline-block;
   position: relative;
 }
 .cartModal {
@@ -111,7 +112,7 @@ button {
   width: 100%;
 }
 .thumb-big img {
-  border-radius: 30px;
+  border-radius: 20px;
 }
 .thumb-small {
   margin: 18px 0 0;

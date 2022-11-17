@@ -1,6 +1,5 @@
 import Count from "../Count"
 import prd from "../temp/prd"
-import cart from "../images/icon-cart.svg"
 import {useState} from 'react'
 
 function Info() {
@@ -8,7 +7,7 @@ function Info() {
   const [current, setCurrent] = useState(data[0])
 
   const onClick = () => {
-    //createElement해서 append하는수밖에,,
+    const prdNum = Number(document.querySelector(".prd-num-input").value);
     const cartEmpty = document.querySelector(".cart-empty");
     const newItem = document.createElement("div");
     const cartList = document.querySelector(".cart-list");
@@ -19,10 +18,10 @@ function Info() {
       <div class='cart-prd-desc'>
         <h3>${current.title}</h3>
         <p>
-          <span class='cart-prd-price'>$${current.price}.00</span> x <span class='cart-prd-count'>3</span> <strong>$${current.price * 3 + ".00"}</strong>
+          <span class='cart-prd-price'>$${current.price.toFixed(2)}</span> x <span class='cart-prd-count'>${prdNum}</span> <strong class='cart-prd-total'>$${(current.price * prdNum).toFixed(2)}</strong>
         </p>
       </div>
-      <button class='btnDel'>Del</button>
+      <button class='btnDel'><i class="uil uil-trash"></i></button>
     `
     const cartItem = document.querySelectorAll(".cart-item");
     const h2 = document.querySelector(".prd-title");
@@ -36,12 +35,25 @@ function Info() {
             }
           }
           if(count < 1) {
-            cartList.append(newItem)
             cartEmpty.classList.add("d-none")
+            cartList.append(newItem)
+          } else {
+            if(prdNum === 0) {
+              alert("No!")
+            } else {
+              document.querySelector(".cart-prd-count").innerText = prdNum
+              document.querySelector(".cart-prd-total").innerText = `$${(current.price * prdNum).toFixed(2)}`
+            }
           }
         } else {
-          cartList.append(newItem)
-          cartEmpty.classList.add("d-none")
+          if(prdNum === 0) {
+            alert("No!")
+          } else {
+            if(cartEmpty !== null) {
+              cartEmpty.classList.add("d-none")
+            }
+            cartList.append(newItem)
+          }
         }
       }
     }
@@ -58,14 +70,14 @@ function Info() {
       </p>
       <div className='prd-price'>
         <div className='prd-sale'>
-          <strong>${current.price}.00</strong>
+          <strong>${current.price.toFixed(2)}</strong>
           <span className='prd-discount'>50%</span>
         </div>
-        <div className='prd-original'><strike>${current.original}.00</strike></div>
+        <div className='prd-original'><strike>${current.original.toFixed(2)}</strike></div>
       </div>
       <div className='prd-button'>
         <Count />
-        <button onClick={onClick} className='addCart'><img src={cart} /> Add to cart</button>
+        <button onClick={onClick} className='addCart'><i className="uil uil-shopping-cart-alt"></i> Add to cart</button>
       </div>
     </div>
   )

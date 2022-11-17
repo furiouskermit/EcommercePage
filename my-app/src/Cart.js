@@ -4,14 +4,6 @@ import cart from './images/icon-cart.svg';
 function Cart() {
   const [toggle, setToggle] = useState(false);
 
-  const user = {
-    firstName: '현제',
-    lastName: '성'
-  }
-  function name(user) {
-    return user.lastName + user.firstName;
-  }
-
   const onclick = () => {
     setToggle(prev => !prev);
   }
@@ -35,9 +27,9 @@ function Cart() {
       <div className={!toggle ? "d-none" : "cartModal"}>
         <h3>Cart</h3>
         <div className='cart-content'>
-          <div className='test'>hello, {name(user)}</div>
           <p className={isEmpty()?"cart-empty":"d-none"}>Your cart is empty.</p>
           <div className='cart-list'></div>
+          <button className="btnCheckout d-none">Checkout</button>
         </div>
       </div>
     </div>
